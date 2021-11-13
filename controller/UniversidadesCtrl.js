@@ -8,7 +8,7 @@ universidadCtrl.listar = async() => {
     return universidades;
 };
 
-universidadCtrl.insertar = async(universidad) => {
+/*universidadCtrl.insertar = async(universidad) => {
     return await universidadDAO.create(universidad);
 };
 
@@ -22,6 +22,6 @@ universidadCtrl.eliminar = async(id) => {
     await universidadDAO.deleteOne({
         _id: id
     });
-};
+};*/
 
 module.exports = universidadCtrl;

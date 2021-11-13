@@ -2,10 +2,13 @@ const mongoose = require("../DB/conexionBD")
 
 const usuarioSchema = mongoose.Schema({
     nombreUsuario: String,
-    correoElectronico: String,
-    profesion: String,
     numeroContacto: String,
-    areaDeConocimiento: String
+    email: String,
+    areaDeInteres: String,
+    intereses: [{
+        nombreUniversidad: String,
+        nombrePosgrado: Number,
+    }]
 }, {
     Collection: "usuarios",
     versionKey: false
