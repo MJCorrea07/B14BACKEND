@@ -1,4 +1,4 @@
-const { request, response } = require("express");
+/* const { request, response } = require("express");
 const express = require("express");
 
 const app = express();
@@ -38,13 +38,13 @@ app.get('/api/personas', (request, response) => {
     response.status(201).json(personas);
 });
 
-/*app.post('/api/personas', (request, response) => {
+app.post('/api/personas', (request, response) => {
     const persona = request.body;
     console.log(persona);
     response.status(200).json(persona);
     personas.push(persona);
     console.log(personas);
-});*/
+});
 
 app.post('/api/personas', (request, response) => {
     const persona = request.body;
@@ -88,4 +88,4 @@ app.delete('api/personas:id', (request, response) => {
 
 app.listen(3000, () => {
     console.log('Server corriendo');
-})
+}) */

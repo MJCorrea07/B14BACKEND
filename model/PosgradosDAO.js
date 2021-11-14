@@ -2,9 +2,12 @@ const mongoose = require("../DB/conexionBD")
 
 const posgradoSchema = mongoose.Schema({
     nombrePosgrado: String,
-    universidad: [{
-        nombreUniversidad: String
-    }],
+    universidad: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "universidades"
+        }]
+    },
     pensum: [{
         nombreMateria: String,
         intensidadHoraria: String
@@ -14,6 +17,6 @@ const posgradoSchema = mongoose.Schema({
     versionKey: false
 });
 
-const posgradosDAO = mongoose.model('posgrados', posgradosShcema);
+const posgradosDAO = mongoose.model('posgrados', posgradoSchema);
 
 module.exports = posgradosDAO;

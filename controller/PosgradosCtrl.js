@@ -8,7 +8,7 @@ posgradoCtrl.listar = async() => {
     return posgrados;
 };
 
-/*posgradoCtrl.insertar = async(posgrado) => {
+posgradoCtrl.insertar = async(posgrado) => {
     return await posgradoDAO.create(posgrado);
 };
 
@@ -22,6 +22,6 @@ posgradoCtrl.eliminar = async(id) => {
     await posgradoDAO.deleteOne({
         _id: id
     });
-};*/
+};
 
 module.exports = posgradoCtrl;
