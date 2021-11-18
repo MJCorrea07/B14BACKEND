@@ -1,17 +1,18 @@
 const { stringify } = require("nodemon/lib/utils")
-const express = require("express")
-const cors = require("cors")
-const usuariosCtrl = require("./controller/usuariosCtrl")
-const universidadesCtrl = require("./controller/universidadesCtrl")
-const posgradosCtrl = require("./controller/posgradosCtrl")
+const { request, response } = require("express");
+const express = require("express");
+const cors = require("cors");
+const usuariosCtrl = require("./controller/usuariosCtrl");
+const universidadesCtrl = require("./controller/universidadesCtrl");
+const posgradosCtrl = require("./controller/posgradosCtrl");
 const morgan = require("morgan");
 const helmet = require("helmet");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(morgan("common"))
-app.use(helmet())
+app.use(morgan("common"));
+app.use(helmet());
 
 app.get('/api/usuarios', async(request, response) => {
     let usuarios = await usuariosCtrl.listar();
@@ -44,8 +45,8 @@ app.put('/api/usuarios', async(request, response) => {
 app.delete('/api/usuarios/:id', async(request, response) => {
     try {
         let id = request.params.id;
-    await usuariosCtrl.eliminar(id);
-    response.status(204).send("usuario Eliminada");
+        await usuariosCtrl.eliminar(id);
+        response.status(204).send("Usuario Eliminado");
     } catch (error) {
         console.log(error);
         response.status(400).send(error);
@@ -55,50 +56,50 @@ app.delete('/api/usuarios/:id', async(request, response) => {
 app.get('/api/universidades', async(request, response) => {
     try {
         const universidades = await universidadesCtrl.listar();
-        res.status(200).send(universidades);
-    } catch(error) {
+        response.status(200).send(universidades);
+    } catch (error) {
         console.log(error);
         response.status(400).send(error);
     }
-    
+
 });
 
-app.post('/api/universidades', async (request, response) => {
+app.post('/api/universidades', async(request, response) => {
     try {
-        const data = req.body
+        const data = request.body
         const universidad = await universidadesCtrl.insertar(data);
-        res.status(200).send(universidad)
-    }catch (error) {
+        response.status(200).send(universidad)
+    } catch (error) {
         console.log(error);
         response.status(400).send(error);
     }
-    
+
 })
 
 app.get('/api/posgrados', async(request, response) => {
     try {
         const posgrados = await posgradosCtrl.listar();
-        res.status(200).send(posgrados);
-    } catch(error) {
+        response.status(200).send(posgrados);
+    } catch (error) {
         console.log(error);
         response.status(400).send(error);
     }
-    
+
 });
 
-app.post('/api/posgrados', async (request, response) => {
+app.post('/api/posgrados', async(request, response) => {
     try {
-        const data = req.body
+        const data = request.body
         const posgrado = await posgradosCtrl.insertar(data);
-        res.status(200).send(posgrado)
-    } catch(error) {
+        response.status(200).send(posgrado)
+    } catch (error) {
         console.log(error);
         response.status(400).send(error);
     }
-    
+
 })
 
-const port = 8000
+const port = 3000
 app.listen(port, () => {
-    console.log('Servidor corriendo en el puerto: '+ port);
+    console.log('Servidor corriendo en el puerto: ' + port);
 })

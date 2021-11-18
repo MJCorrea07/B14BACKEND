@@ -4,13 +4,10 @@ const usuarioSchema = mongoose.Schema({
     nombreUsuario: String,
     numeroContacto: Number,
     email: String,
-    areaDeInteres: String,
-    intereses: {
-        type: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "posgrados"
-        }]
-    },
+    posgradosDeInteres: [{
+        idPosgrado: String,
+        nombrePosgrado: String,
+    }]
 }, {
     Collection: "usuarios",
     versionKey: false

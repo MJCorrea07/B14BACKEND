@@ -2,15 +2,14 @@ const mongoose = require("../DB/conexionBD")
 
 const posgradoSchema = mongoose.Schema({
     nombrePosgrado: String,
-    universidad: {
-        type: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "universidades"
-        }]
-    },
-    pensum: [{
+    universidad: [{
+        idUniversidad: String,
+        nombreUniversidad: String
+    }],
+    materias: [{
         nombreMateria: String,
-        intensidadHoraria: String
+        intensidadHoraria: String,
+        descripcion: String
     }]
 }, {
     Collection: "Posgrados",
