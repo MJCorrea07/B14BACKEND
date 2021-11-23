@@ -9,13 +9,14 @@ usuarioCtrl.listar = async() => {
 };
 
 usuarioCtrl.insertar = async(usuario) => {
+    delete usuario._id;
     return await usuarioDAO.create(usuario);
 };
 
 usuarioCtrl.actualizar = async(usuario) => {
-    let id = usuario._id;
-    delete usuario._id;
-    return await usuarioDAO.findOneAndUpdate(id, usuario);
+    //let id = usuario._id;
+    //delete usuario._id;
+    return await usuarioDAO.findOneAndUpdate(usuario._id, usuario);
 };
 
 usuarioCtrl.eliminar = async(id) => {

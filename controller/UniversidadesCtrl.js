@@ -8,14 +8,20 @@ universidadCtrl.listar = async() => {
     return universidades;
 };
 
+universidadCtrl.buscarXId = async(pId) => {
+    let universidades = await universidadDAO.find({ id: pId });
+    return universidad;
+};
+
 universidadCtrl.insertar = async(universidad) => {
+    delete universidad._id;
     return await universidadDAO.create(universidad);
 };
 
 universidadCtrl.actualizar = async(universidad) => {
-    let id = universidad._id;
-    delete universidad._id;
-    return await universidadDAO.findOneAndUpdate(id, universidad);
+    //let id = universidad._id;
+    //delete universidad._id;
+    return await universidadDAO.findOneAndUpdate(universidad._id, universidad);
 };
 
 universidadCtrl.eliminar = async(id) => {

@@ -4,8 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start": "node app.js",
         "app": "nodemon app.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "heroku-postbuild": "ng build --prod"
     },
     "keywords": [],
     "author": "",
@@ -17,5 +19,12 @@
         "mongoose": "^6.0.13",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.15"
+    },
+    "engines": {
+        "node": "16.13.0",
+        "npm": "8.1.0"
+    },
+    "devDependencies": {
+        "enhanced-resolve": "^3.3.0"
     }
 }

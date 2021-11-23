@@ -2,7 +2,7 @@ const mongoose = require("../DB/conexionBD")
 
 const usuarioSchema = mongoose.Schema({
     nombreUsuario: String,
-    numeroContacto: Number,
+    numeroContacto: String,
     email: String,
     posgradosDeInteres: [{
         idPosgrado: String,
